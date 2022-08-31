@@ -530,14 +530,10 @@ void FOnlineIdentityAccelByte::AddNewAuthenticatedUser(int32 LocalUserNum, const
 
 void FOnlineIdentityAccelByte::OnLogout(const int32 LocalUserNum, bool bWasSuccessful)
 {
+	UE_LOG_AB(Log, TEXT("Logging out with AccelByte OSS was successful: %d! LocalUserNum: %d"), bWasSuccessful, LocalUserNum);
 	TriggerOnLogoutCompleteDelegates(LocalUserNum, bWasSuccessful);
 	SetLoginStatus(LocalUserNum, ELoginStatus::NotLoggedIn);
-
-	if (bWasSuccessful)
-	{
-		UE_LOG_AB(Log, TEXT("Logging out with AccelByte OSS succeeded! LocalUserNum: %d"), LocalUserNum);
-		RemoveUserFromMappings(LocalUserNum);
-	}
+	RemoveUserFromMappings(LocalUserNum);
 }
 
 void FOnlineIdentityAccelByte::RemoveUserFromMappings(const int32 LocalUserNum)

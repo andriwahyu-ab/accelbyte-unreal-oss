@@ -13,6 +13,8 @@
 
 DECLARE_DELEGATE_OneParam(FOnGetDisplayNameComplete, FString /*DisplayName*/);
 
+DECLARE_DELEGATE_TwoParams(FOnRequestCompleted, bool /*bWasSuccessful*/, const FString& /*Error*/);
+
 class ONLINESUBSYSTEMACCELBYTE_API FOnlineSubsystemAccelByteUtils
 {
 public:

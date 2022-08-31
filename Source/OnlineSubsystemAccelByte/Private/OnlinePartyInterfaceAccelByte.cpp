@@ -728,7 +728,7 @@ void FOnlinePartySystemAccelByte::OnPartyJoinNotification(const FAccelByteModels
 	AB_OSS_INTERFACE_TRACE_END(TEXT("Dispatched async task to add new joined party member to local party."));
 }
 
-void FOnlinePartySystemAccelByte::OnPartyLeaveNotification(const FAccelByteModelsLeavePartyNotice& Notification, TSharedRef<const FUniqueNetIdAccelByteUser> UserId)
+void FOnlinePartySystemAccelByte::OnPartyMemberLeaveNotification(const FAccelByteModelsLeavePartyNotice& Notification, TSharedRef<const FUniqueNetIdAccelByteUser> UserId)
 {
 	AB_OSS_INTERFACE_TRACE_BEGIN(TEXT("UserId: %s; LeavingUser: %s"), *UserId->ToDebugString(), *Notification.UserID);
 
@@ -960,8 +960,8 @@ void FOnlinePartySystemAccelByte::RegisterRealTimeLobbyDelegates(const TSharedRe
 	AccelByte::Api::Lobby::FPartyJoinNotif OnPartyJoinNotificationDelegate = AccelByte::Api::Lobby::FPartyJoinNotif::CreateThreadSafeSP(AsShared(), &FOnlinePartySystemAccelByte::OnPartyJoinNotification, UserId);
 	ApiClient->Lobby.SetPartyJoinNotifDelegate(OnPartyJoinNotificationDelegate);
 
-	AccelByte::Api::Lobby::FPartyLeaveNotif OnPartyLeaveNotificationDelegate = AccelByte::Api::Lobby::FPartyLeaveNotif::CreateThreadSafeSP(AsShared(), &FOnlinePartySystemAccelByte::OnPartyLeaveNotification, UserId);
-	ApiClient->Lobby.SetPartyLeaveNotifDelegate(OnPartyLeaveNotificationDelegate);
+	AccelByte::Api::Lobby::FPartyMemberLeaveNotif OnPartyMemberLeaveNotificationDelegate = AccelByte::Api::Lobby::FPartyMemberLeaveNotif::CreateThreadSafeSP(AsShared(), &FOnlinePartySystemAccelByte::OnPartyMemberLeaveNotification, UserId);
+	ApiClient->Lobby.SetPartyMemberLeaveNotifDelegate(OnPartyMemberLeaveNotificationDelegate);
 
 	AccelByte::Api::Lobby::FPartyKickNotif OnPartyKickNotificationDelegate = AccelByte::Api::Lobby::FPartyKickNotif::CreateThreadSafeSP(AsShared(), &FOnlinePartySystemAccelByte::OnPartyKickNotification, UserId);
 	ApiClient->Lobby.SetPartyKickNotifDelegate(OnPartyKickNotificationDelegate);
