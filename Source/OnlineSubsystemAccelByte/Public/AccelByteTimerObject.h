@@ -9,7 +9,7 @@
 /**
 * This class will automatically register to gamethread tickable objects. 
 * Start() function will make Tick() active
-* When current time reached ExpirationTimeMs, the Delegate will be invoked once
+* When current time reached ExpirationTimeMs, the Delegate will be invoked once new feature
 */
 class FAccelByteTimerObject : public FTickableGameObject
 {

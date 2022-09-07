@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.4](https://bitbucket.org/andriwahyu/justice-ue4-oss/branches/compare/0.5.4%0D0.5.3) (2022-09-07)
+
+
+### Features
+
+* add feature ([9827d3e](https://bitbucket.org/andriwahyu/justice-ue4-oss/commits/9827d3e22c00403fc36f2fa73a4f458ac855e27c))
+* add new feature ([98d4c7e](https://bitbucket.org/andriwahyu/justice-ue4-oss/commits/98d4c7ed571b759a8da4d440547aa3b4217c75c4))
+
 ### [0.5.3](https://bitbucket.org/andriwahyu/justice-ue4-oss/branches/compare/0.5.3%0D0.5.2) (2022-09-05)
 
 
